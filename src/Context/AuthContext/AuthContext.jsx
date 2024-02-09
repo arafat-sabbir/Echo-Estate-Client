@@ -18,7 +18,7 @@ export const Context = createContext("");
 
 const AuthContext = ({ children }) => {
     const axiosPublic = useAxiosPublic();
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState(null);
     const [loader, setLoader] = useState(true);
     const auth = getAuth(app);
 
