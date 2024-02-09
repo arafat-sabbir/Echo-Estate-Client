@@ -1,9 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import useAuth from "../../Auth/UseAuth/useAuth";
 import Button from "../../Shared/Button";
 import useGetUser from "../../Hooks/GetUserInfo/useGetUser";
 import { useEffect, useState } from "react";
 import { NavLinks } from "./Navlinks";
+import useAuth from "../../Utility/Hooks/useAuth/useAuth";
 
 const Navbar = () => {
     // Get The User Info From useGetUser Hooks
@@ -33,6 +33,7 @@ const Navbar = () => {
 
     // Geth Auth Related Function From UseAuth
     const { user, signOutUser } = useAuth();
+
     // SignOut User 
     const handleSignOut = () => {
         signOutUser()
@@ -43,17 +44,12 @@ const Navbar = () => {
                 console.log(error);
             });
     };
+
     // Navbar Jsx
     return (
         <div className={`transition duration-300 ${isScrolled ? "bg-white  fixed top-0 left-0 right-0 z-50" : "bg-white fixed top-0 left-0 right-0 z-50"}`}>
             <div className="container mx-auto  top-0">
-                <div
-                    className={
-                        location.pathname == "/"
-                            ? `navbar  justify-center  py-6 relative container mx-auto  z-50`
-                            : "navbar  justify-center  py-6  container mx-auto z-50 "
-                    }
-                >
+                <div className={location.pathname == "/" ? `navbar  justify-center  py-6 container mx-auto  z-50` : "navbar  justify-center  py-6  container mx-auto z-50 "}>
                     <div className="navbar-start">
                         <div className="dropdown">
                             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -72,47 +68,36 @@ const Navbar = () => {
                                     />
                                 </svg>
                             </label>
-                            <ul
-                                tabIndex={0}
-                                className="menu menu-sm dropdown-content font-semibold mx-2 mt-3 z-[50] p-2 shadow bg-base-100 rounded-box w-52 hover:scale-110"
-                            >
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content font-semibold mx-2 mt-3 z-[50] p-2 bg-base-100 rounded-box w-52 hover:scale-110">
                                 {<NavLinks isScrolled={isScrolled} />}
                             </ul>
                         </div>
                         <div className="hidden lg:flex  font-semibold items-center">
-                            <Link
-                                to={"/"}
-                                className={
-                                    location.pathname == "/"
-                                        ? `!flex font-black text-white  items-center  duration-300`
-                                        : "!flex font-semibold items-center  duration-300"
-                                }
-                            >
-                                <img
-                                    className="w-22 h-12"
-                                    src="https://i.ibb.co/rbX4J5H/Untitled-design-2.png"
-                                    alt=""
-                                />
+                            <Link to={"/"}
+                                className={location.pathname == "/" ? `!flex font-black text-white  items-center  duration-300` : "!flex font-semibold items-center  duration-300"}>
+                                <img className="w-22 h-12" src="https://i.ibb.co/rbX4J5H/Untitled-design-2.png" alt="" />
                                 <p className={`text-black text-2xl  font-semibold`}>Echo Estate</p>
                             </Link>
                         </div>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal  font-semibold gap-4 px-1 ">
+                            {/* Large Screen Navlinks */}
                             {<NavLinks isScrolled={isScrolled} />}
                         </ul>
                     </div>
                     <div className="navbar-end">
+                        {/* DropDown Using User Photo */}
                         <div className="dropdown dropdown-bottom dropdown-end z-50 ">
                             <label tabIndex={0} className="">
                                 {user && (
                                     <img
                                         className="w-12 mr-4 h-12  rounded-full border-2 border-main  "
                                         src={userinfo?.photo}
-                                        alt=""
-                                    />
+                                        alt="" />
                                 )}
                             </label>
+                            {/* If User Logged In Show The User Data */}
                             {user && (
                                 <ul className="p-2 shadow menu dropdown-content bg-[#072730da] z-[1]  rounded-box w-56">
                                     <img
@@ -132,15 +117,12 @@ const Navbar = () => {
                                 </ul>
                             )}
                         </div>
-                        {user ? (
-                            ""
-                        ) : (
-                            <div>
-                                <Link to={"/signIn "} className="">
-                                    <Button title={"Sign In"}></Button>
-                                </Link>
-                            </div>
-                        )}
+                        {/* Show Sign in Page Navigation If User Not Logged In */}
+                        {!user && <div>
+                            <Link to={"/signIn "} className="">
+                                <Button title={"Sign In"}></Button>
+                            </Link>
+                        </div>}
                     </div>
                 </div>
             </div>
