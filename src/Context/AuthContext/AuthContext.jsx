@@ -1,5 +1,5 @@
 import {
-    GoogleAuthContext,
+    GoogleAuthProvider,
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
@@ -31,7 +31,7 @@ const AuthContext = ({ children }) => {
     const auth = getAuth(app);
 
     // Google Auth Provider
-    const googleProvider = new GoogleAuthContext();
+    const googleProvider = new GoogleAuthProvider();
 
     // Handle Google Sign In 
     const signWithGoogle = () => {

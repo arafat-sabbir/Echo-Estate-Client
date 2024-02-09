@@ -1,21 +1,24 @@
 import { Link, useLocation } from "react-router-dom";
-import Button from "../../Shared/Button";
-import useGetUser from "../../Hooks/GetUserInfo/useGetUser";
 import { useEffect, useState } from "react";
-import { NavLinks } from "./Navlinks";
-import useAuth from "../../Utility/Hooks/useAuth/useAuth";
+import Button from "../Button/Button";
+import useAuth from "../../Utility/Hooks/useAuth";
+import useUserInfo from "../../Utility/Hooks/useUserInfo";
+import NavigationLinks from "./Navlinks/NavigationLinks";
 
 const Navbar = () => {
+
     // Get The User Info From useGetUser Hooks
-    const { userinfo } = useGetUser();
+    const { userinfo } = useUserInfo();
 
     // Use Location Hook To Get The Current Your Location Page
     const location = useLocation();
 
     // Navbar Scroll Effect
     const [isScrolled, setIsScrolled] = useState(false);
+
     // Check if the user has scrolled down
     useEffect(() => {
+
         const handleScroll = () => {
             // Check if the user has scrolled down
             const scrolled = window.scrollY > 0;
@@ -69,7 +72,7 @@ const Navbar = () => {
                                 </svg>
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content font-semibold mx-2 mt-3 z-[50] p-2 bg-base-100 rounded-box w-52 hover:scale-110">
-                                {<NavLinks isScrolled={isScrolled} />}
+                                {<NavigationLinks isScrolled={isScrolled} />}
                             </ul>
                         </div>
                         <div className="hidden lg:flex  font-semibold items-center">
@@ -83,7 +86,7 @@ const Navbar = () => {
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal  font-semibold gap-4 px-1 ">
                             {/* Large Screen Navlinks */}
-                            {<NavLinks isScrolled={isScrolled} />}
+                            {<NavigationLinks isScrolled={isScrolled} />}
                         </ul>
                     </div>
                     <div className="navbar-end">
