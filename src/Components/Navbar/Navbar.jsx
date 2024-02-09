@@ -9,11 +9,12 @@ const Navbar = () => {
     // Get The User Info From useGetUser Hooks
     const { userinfo } = useGetUser();
 
+    // Use Location Hook To Get The Current Your Location Page
     const location = useLocation();
 
     // Navbar Scroll Effect
     const [isScrolled, setIsScrolled] = useState(false);
-
+    // Check if the user has scrolled down
     useEffect(() => {
         const handleScroll = () => {
             // Check if the user has scrolled down
@@ -29,9 +30,6 @@ const Navbar = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
-    // Use the isScrolled state to conditionally apply styles
-
 
     // Geth Auth Related Function From UseAuth
     const { user, signOutUser } = useAuth();

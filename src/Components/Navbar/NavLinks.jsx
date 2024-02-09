@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 export const NavLinks = ({ isScrolled }) => {
   return (
@@ -27,3 +28,7 @@ export const NavLinks = ({ isScrolled }) => {
     </>
   );
 };
+
+NavLinks.propTypes = {
+  isScrolled: PropTypes.object
+}
