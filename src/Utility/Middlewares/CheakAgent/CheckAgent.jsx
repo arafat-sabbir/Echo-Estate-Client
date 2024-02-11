@@ -1,10 +1,12 @@
 import { Navigate, useLocation } from "react-router-dom";
-import useAuth from "../UseAuth/useAuth";
-import useGetUser from "../../Hooks/GetUserInfo/useGetUser";
-import Loading from "../../Components/Loading/Loading";
+import useUserInfo from "../../Hooks/useUserInfo";
+import useAuth from "../../Hooks/useAuth";
+import Loading from "../../../Components/Loading/Loading";
+import PropTypes from "prop-types"
+
 
 const CheckAgent = ({ children }) => {
-  const { userinfo, isLoading } = useGetUser();
+  const { userinfo, isLoading } = useUserInfo();
   const location = useLocation();
   const { loader, user } = useAuth();
   const isAgent = userinfo.role === "agent";
@@ -19,3 +21,7 @@ const CheckAgent = ({ children }) => {
 };
 
 export default CheckAgent;
+
+CheckAgent.propTypes = {
+  children: PropTypes.node
+}

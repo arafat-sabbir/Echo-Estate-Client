@@ -1,9 +1,10 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
-import useAxiosSecure from "../../../../../Hooks/AxiosSecure/useAxiosSecure";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
 import useAuth from "../../../../Utility/Hooks/useAuth";
+import useAxiosSecure from "../../../../Utility/Hooks/AxiosInstance/useAxiosSecure";
+
 
 const MakeAnOffer = () => {
   const wish = useLoaderData();
@@ -19,7 +20,7 @@ const MakeAnOffer = () => {
     agentName,
     propertyImage,
     propertyLocation,
-    propertyTitle, 
+    propertyTitle,
     minPrice,
     maxPrice,
     agentEmail,
@@ -37,8 +38,8 @@ const MakeAnOffer = () => {
       propertyTitle: propertyTitle,
       propertyLocation: propertyLocation,
       propertyImage: propertyImage,
-      minPrice:minPrice,
-      maxPrice:maxPrice,
+      minPrice: minPrice,
+      maxPrice: maxPrice,
       offerredPriceRange: item.OfferedPrice,
       offerredDate: item.OfferedDate,
       agentName: agentName,

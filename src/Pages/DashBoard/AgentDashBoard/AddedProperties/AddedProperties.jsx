@@ -1,11 +1,11 @@
 import Swal from "sweetalert2"
 import AddedPropertiesCard from "./AddedPropertiesCard";
 import toast from "react-hot-toast";
-import Loading from "../../../../../Components/Loading/Loading";
 import useAddedProperty from "../../../../Utility/Hooks/useAddedProperty";
 import Container from "../../../../Utility/Container/Container";
 import useAxiosSecure from "../../../../Utility/Hooks/AxiosInstance/useAxiosSecure";
 import SectionTitle from "../../../../Utility/SectionTitle/SectionTitle";
+import Loading from "../../../../Components/Loading/Loading";
 
 const AddedProperties = () => {
   const { Properties, refetch, isLoading } = useAddedProperty();

@@ -1,10 +1,13 @@
 import { Navigate, useLocation } from "react-router-dom";
-import useAuth from "../UseAuth/useAuth";
-import useGetUser from "../../Hooks/GetUserInfo/useGetUser";
-import Loading from "../../Components/Loading/Loading";
+import useUserInfo from "../../Hooks/useUserInfo";
+import useAuth from "../../Hooks/useAuth";
+import Loading from "../../../Components/Loading/Loading";
+import PropTypes from "prop-types"
+
+
 
 const CheckAdmin = ({ children }) => {
-  const { userinfo, isLoading } = useGetUser();
+  const { userinfo, isLoading } = useUserInfo();
   const location = useLocation();
   const { loader, user } = useAuth();
   const isAdmin = userinfo.role === "admin";
@@ -19,3 +22,7 @@ const CheckAdmin = ({ children }) => {
 };
 
 export default CheckAdmin;
+
+CheckAdmin.propTypes = {
+  children: PropTypes.node
+}

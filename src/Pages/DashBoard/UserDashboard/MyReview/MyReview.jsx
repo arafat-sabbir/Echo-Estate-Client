@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../../../../Auth/UseAuth/useAuth";
-import useAxiosSecure from "../../../../../Hooks/AxiosSecure/useAxiosSecure";
+;
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import ReviewCard from "./ReviewCard";
-import Container from "../../../../../Utils/Container/Container";
-import Loading from "../../../../../Components/Loading/Loading";
+import useAxiosSecure from "../../../../Utility/Hooks/AxiosInstance/useAxiosSecure";
+import useAuth from "../../../../Utility/Hooks/useAuth";
+import Loading from "../../../../Components/Loading/Loading";
+import Container from "../../../../Utility/Container/Container";
+
 
 const MyReview = () => {
   const axiosSecure = useAxiosSecure();

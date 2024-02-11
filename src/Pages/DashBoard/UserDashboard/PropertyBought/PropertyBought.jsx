@@ -1,10 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../../../Hooks/AxiosSecure/useAxiosSecure";
-import useAuth from "../../../../../Auth/UseAuth/useAuth";
 import BoughtPropertyCard from "./BoughtPropertyCard";
-import { AiOutlineDollar } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import Loading from "../../../../../Components/Loading/Loading";
+import useAxiosSecure from "../../../../Utility/Hooks/AxiosInstance/useAxiosSecure";
+import useAuth from "../../../../Utility/Hooks/useAuth";
+import Loading from "../../../../Components/Loading/Loading";
+
 
 const PropertyBought = () => {
   const axiosSecure = useAxiosSecure();

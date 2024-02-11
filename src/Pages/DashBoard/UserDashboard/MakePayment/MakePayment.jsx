@@ -1,11 +1,12 @@
 import { loadStripe } from "@stripe/stripe-js";
-import useAuth from "../../../../../Auth/UseAuth/useAuth";
 import { Elements } from "@stripe/react-stripe-js";
 import PaymentCheakout from "./PaymentCheakout";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../../../Hooks/AxiosSecure/useAxiosSecure";
 import { useParams } from "react-router-dom";
-import Loading from "../../../../../Components/Loading/Loading";
+import useAuth from "../../../../Utility/Hooks/useAuth";
+import Loading from "../../../../Components/Loading/Loading";
+import useAxiosSecure from "../../../../Utility/Hooks/AxiosInstance/useAxiosSecure";
+
 const MakePayment = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
