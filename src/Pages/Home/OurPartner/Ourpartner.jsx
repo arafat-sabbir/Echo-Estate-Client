@@ -1,7 +1,6 @@
 import Marquee from "react-fast-marquee";
-import SectionTitle from "../../../../Utils/SectionTitle/SectionTitle";
 
-const Ourpartner = () => {
+const OurPartner = () => {
   return (
   <div>
      <div className="bg-[#F2FFE9]">
@@ -22,4 +21,4 @@ const Ourpartner = () => {
   );
 };
 
-export default Ourpartner;
+export default OurPartner;
