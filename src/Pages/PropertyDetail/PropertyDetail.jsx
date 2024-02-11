@@ -8,7 +8,7 @@ import useAxiosSecure from "../../../Hooks/AxiosSecure/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../../Utils/SectionTitle/SectionTitle";
 import useGetUser from "../../../Hooks/GetUserInfo/useGetUser";
-import Loading from "../../../Components/Loading/Loading";
+import Loading from "../../Components/Loading/Loading";
 import { GoCodeReview } from "react-icons/go";
 import useAuth from "../../Utility/Hooks/useAuth";
 
@@ -16,7 +16,7 @@ const PropertyDetail = () => {
   const axiosSecure = useAxiosSecure();
   const location = useLocation();
   const navigate = useNavigate();
-  const {user} = useAuth()
+  const { user } = useAuth()
   const { userinfo } = useGetUser();
   useEffect(() => {
     window.scrollTo({
@@ -112,13 +112,13 @@ const PropertyDetail = () => {
               <div className="divider divider-error lg:w-auto w-11/12"></div>
               <div className="flex cursor-pointer ">
                 <div className="m-2">
-                 <Link to={`/agentProfile/${agentEmail}`}>
-                 <img
-                    src={agentImage}
-                    alt=""
-                    className=" rounded-full w-12 h-12"
-                  />
-                 </Link>
+                  <Link to={`/agentProfile/${agentEmail}`}>
+                    <img
+                      src={agentImage}
+                      alt=""
+                      className=" rounded-full w-12 h-12"
+                    />
+                  </Link>
                 </div>
                 <div className="grid m-1">
                   <div className="font-bold text-sm hover:text-gray-600 mt-2">
@@ -131,21 +131,21 @@ const PropertyDetail = () => {
               </div>
               <div className="flex gap-10 mt-4">
                 <div className="border-r-2 pr-8 border-r-main">
-                 {
-                  user ? <button
-                  onClick={() => handleAddtoWishlist(_id)}
-                  className="relative px-8 py-2 rounded-full  bg-[#072730] text-white  isolation-auto z-10 border  border-dashed border-main 
+                  {
+                    user ? <button
+                      onClick={() => handleAddtoWishlist(_id)}
+                      className="relative px-8 py-2 rounded-full  bg-[#072730] text-white  isolation-auto z-10 border  border-dashed border-main 
                   before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0  before:bg-main font-medium hover:text-white before:-z-10  before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700"
-                >
-                  Add To WishList
-                </button>: <button
-                    onClick={handleNotSignIN}
-                    className="relative px-8 py-2 rounded-full  bg-[#072730] text-white  isolation-auto z-10 border  border-dashed border-main 
+                    >
+                      Add To WishList
+                    </button> : <button
+                      onClick={handleNotSignIN}
+                      className="relative px-8 py-2 rounded-full  bg-[#072730] text-white  isolation-auto z-10 border  border-dashed border-main 
                     before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-right-full before:hover:right-0  before:bg-main font-medium hover:text-white before:-z-10  before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700"
-                  >
-                    Add To WishList
-                  </button>
-                 }
+                    >
+                      Add To WishList
+                    </button>
+                  }
                 </div>
                 <div className="">
                   <Review property={propertyDetail}></Review>
@@ -202,14 +202,14 @@ const PropertyDetail = () => {
               ))}
             </div>
           </div>
-        )): <div className="lg:ml-[185px] p-4 h-[40vh] flex flex-col justify-center">
-        <SectionTitle
-          title={"Client Review"}
-          subtitle={"See What Client Say About This Property"}
-        ></SectionTitle>
-        <p> <GoCodeReview className="text-5xl mx-auto text-main"></GoCodeReview> </p>
-        <h3 className="text-center text-3xl font-semibold">No One Reviewed This Property</h3>
-      </div>}
+        )) : <div className="lg:ml-[185px] p-4 h-[40vh] flex flex-col justify-center">
+          <SectionTitle
+            title={"Client Review"}
+            subtitle={"See What Client Say About This Property"}
+          ></SectionTitle>
+          <p> <GoCodeReview className="text-5xl mx-auto text-main"></GoCodeReview> </p>
+          <h3 className="text-center text-3xl font-semibold">No One Reviewed This Property</h3>
+        </div>}
     </Container>
   );
 };

@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import Container from "../../../Utils/Container/Container";
 import PropertyCard from "./PropertyCard";
-import Loading from "../../../Components/Loading/Loading";
+
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/AxiosSecure/useAxiosSecure";
 import SectionTitle from "../../../Utils/SectionTitle/SectionTitle";
 import { Helmet } from "react-helmet";
+import Loading from "../../Components/Loading/Loading";
+
+import Loading from "../../Components/Loading/Loading";
 
 const Allproperties = () => {
   const axiosSecure = useAxiosSecure();

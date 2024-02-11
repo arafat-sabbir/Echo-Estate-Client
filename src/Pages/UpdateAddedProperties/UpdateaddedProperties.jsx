@@ -1,15 +1,14 @@
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
-import Container from "../../../Utils/Container/Container";
-import useAxiosPublic from "../../../Hooks/AxiosPublic/useAxiosPublic";
+import {  useLoaderData, useNavigate } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6";
 import useAxiosSecure from "../../../Hooks/AxiosSecure/useAxiosSecure";
 import { useEffect } from "react";
 import axios from "axios";
 import SectionTitle from "../../../Utils/SectionTitle/SectionTitle";
+import Container from "../../Utility/Container/Container";
 
-const UpdateaddedProperties = () => {
+const UpdateAddedProperties = () => {
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -37,9 +36,9 @@ const UpdateaddedProperties = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (item) => {
-    const toastid = toast.loading("Updating Property");
-    const imagefile = { image: item?.photoUrl[0] };
-    const res = await axios.post(imageHostingAPi, imagefile, {
+    const toastId = toast.loading("Updating Property");
+    const imageFile = { image: item?.photoUrl[0] };
+    const res = await axios.post(imageHostingAPi, imageFile, {
       headers: {
         "content-type": "multipart/form-data",
       },
@@ -54,7 +53,7 @@ const UpdateaddedProperties = () => {
     axiosSecure.patch(`/updateProperty/${_id}`, updateData).then((res) => {
       console.log(res.data);
       if (res.data.modifiedCount > 0) {
-        toast.success("Updated Property Successfully", { id: toastid });
+        toast.success("Updated Property Successfully", { id: toastId });
         navigate("/dashboard/addedProperties");
       }
     });
@@ -208,4 +207,4 @@ const UpdateaddedProperties = () => {
   );
 };
 
-export default UpdateaddedProperties;
+export default UpdateAddedProperties;

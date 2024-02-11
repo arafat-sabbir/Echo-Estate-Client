@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import Loading from "../../../../../Components/Loading/Loading";
 import useAuth from "../../../../Utility/Hooks/useAuth";
 import useAxiosSecure from "../../../../Utility/Hooks/AxiosInstance/useAxiosSecure";
+import Loading from "../../../../Components/Loading/Loading";
 
 const RequestedProperties = () => {
   const axiosSecure = useAxiosSecure();

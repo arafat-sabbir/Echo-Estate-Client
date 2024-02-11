@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../../../Hooks/AxiosSecure/useAxiosSecure";
-import SectionTitle from "../../../../../Utils/SectionTitle/SectionTitle";
-import Loading from "../../../../../Components/Loading/Loading";
 import useAuth from "../../../../Utility/Hooks/useAuth";
+import Loading from "../../../../Components/Loading/Loading";
+import useAxiosSecure from "../../../../Utility/Hooks/AxiosInstance/useAxiosSecure";
+import SectionTitle from "../../../../Utility/SectionTitle/SectionTitle";
 
 const SoldProperties = () => {
   const axiosSecure = useAxiosSecure();
