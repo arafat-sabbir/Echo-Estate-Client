@@ -1,11 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import SectionTitle from "../../../../Utils/SectionTitle/SectionTitle";
 import useReview from "../../../Utility/Hooks/useReview";
+import SectionTitle from "../../../Utility/SectionTitle/SectionTitle";
 
 const LatestReview = () => {
   const { reviews } = useReview();
-
   return (
     <div className="max-w-7xl mx-auto  p-4">
       <SectionTitle

@@ -1,20 +1,13 @@
 import AdvertiseCard from "./AdvertiseCard";
-import Loading from "../../../../Components/Loading/Loading";
-import SectionTitle from "../../../../Utils/SectionTitle/SectionTitle";
-import useAdvertise from "../../../../Hooks/useAdvertise/useAdvertise";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import "aos/dist/aos.css";
-import useAuth from "../../../Utility/Hooks/useAuth";
+import Loading from "../../../Components/Loading/Loading";
+import SectionTitle from "../../../Utility/SectionTitle/SectionTitle";
+import useAdvertiseProperty from "../../../Utility/Hooks/useAdvertiseProperty";
+
 
 const Advertise = () => {
-  const { advertise, isLoading } = useAdvertise();
-  const location = useLocation();
-  const { user } = useAuth();
-  const navigate = useNavigate();
-  const handleNotSignIN = () => {
-    navigate("/signIn", { state: location?.pathname });
-  };
+  const { advertise, isLoading } = useAdvertiseProperty();
   if (isLoading) {
     return <Loading></Loading>;
   }
