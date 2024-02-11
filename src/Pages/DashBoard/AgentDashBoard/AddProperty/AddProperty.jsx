@@ -3,13 +3,14 @@ import toast from "react-hot-toast";
 import useAxiosSecure from "../../../../../Hooks/AxiosSecure/useAxiosSecure";
 import { useNavigate } from "react-router-dom";
 import Container from "../../../../../Utils/Container/Container";
-import useGetUser from "../../../../../Hooks/GetUserInfo/useGetUser";
+
 import axios from "axios";
 import { useState } from "react";
+import useUserInfo from "../../../../Utility/Hooks/useUserInfo";
 const AddProperty = () => {
   const imageHostingKey = import.meta.env.VITE_IMAGE_HOST_KEY;
   const axiosSecure = useAxiosSecure();
-  const { userinfo } = useGetUser();
+  const { userinfo } = useUserInfo();
   const [photoName, setPhotoName] = useState(null);
   const [photo, setPhoto] = useState(null);
   const navigate = useNavigate();

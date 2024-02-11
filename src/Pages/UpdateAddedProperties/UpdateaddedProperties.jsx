@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import {  useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6";
-import useAxiosSecure from "../../../Hooks/AxiosSecure/useAxiosSecure";
 import { useEffect } from "react";
 import axios from "axios";
-import SectionTitle from "../../../Utils/SectionTitle/SectionTitle";
 import Container from "../../Utility/Container/Container";
+import useAxiosSecure from "../../Utility/Hooks/AxiosInstance/useAxiosSecure";
+import SectionTitle from "../../Utility/SectionTitle/SectionTitle";
 
 const UpdateAddedProperties = () => {
   useEffect(() => {
@@ -47,8 +47,8 @@ const UpdateAddedProperties = () => {
       propertyImage: res.data.data.display_url,
       propertyTitle: item.propertyTitle,
       propertyLocation: item.propertyLocation,
-      minPrice:item.minPrice,
-      maxPrice:item.maxPrice,
+      minPrice: item.minPrice,
+      maxPrice: item.maxPrice,
     };
     axiosSecure.patch(`/updateProperty/${_id}`, updateData).then((res) => {
       console.log(res.data);
@@ -61,9 +61,9 @@ const UpdateAddedProperties = () => {
   return (
     <div>
       <Container>
-       <div className="ml-8 -mt-1">
-       <SectionTitle title={'Update Property'} subtitle={"Update Your Existing Added Property"}></SectionTitle>
-       </div>
+        <div className="ml-8 -mt-1">
+          <SectionTitle title={'Update Property'} subtitle={"Update Your Existing Added Property"}></SectionTitle>
+        </div>
         <div className="flex gap-8">
           <div className="cursor-pointer rounded-xl bg-white p-3 shadow-[0_0_20px_#E6E6E6] hover:shadow-[0_0_10px_#FF5B22] w-[640px] h-[550px] mx-auto">
             <div className="relative flex items-end overflow-hidden rounded-xl">
