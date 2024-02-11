@@ -12,14 +12,14 @@ import {
 } from "react-icons/ri";
 import { HiOutlineFolderAdd } from "react-icons/hi";
 import { MdOutlineHolidayVillage } from "react-icons/md";
-import useGetUser from "../../../Hooks/GetUserInfo/useGetUser";
 import { Helmet } from "react-helmet";
 import useAuth from "../../Utility/Hooks/useAuth";
+import useUserInfo from "../../Utility/Hooks/useUserInfo";
 
 // ... (previous imports and useGetUser hook)
 
 const DashBoard = () => {
-  const { userinfo } = useGetUser();
+  const { userinfo } = useUserInfo();
   const { signOutUser } = useAuth();
   const navigate = useNavigate();
   const handleSignOut = () => {

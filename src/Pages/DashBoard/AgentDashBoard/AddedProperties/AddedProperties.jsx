@@ -1,5 +1,4 @@
 import Swal from "sweetalert2";
-import useGetUser from "../../../../../Hooks/GetUserInfo/useGetUser";
 import useAddedProperty from "../../../../../Hooks/UseAddedProperty/useAddedProperty";
 import Container from "../../../../../Utils/Container/Container";
 import AddedPropertiesCard from "./AddedPropertiesCard";
@@ -10,7 +9,6 @@ import Loading from "../../../../../Components/Loading/Loading";
 
 const AddedProperties = () => {
   const { Properties, refetch, isLoading } = useAddedProperty();
-  const { userinfo } = useGetUser();
   const axiosSecure = useAxiosSecure()
   const handleDelete = (id) => {
     Swal.fire({
