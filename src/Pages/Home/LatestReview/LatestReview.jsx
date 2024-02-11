@@ -1,9 +1,7 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import { MdDelete } from "react-icons/md";
-import useReview from "../../../../Hooks/UseReview/useReview";
 import SectionTitle from "../../../../Utils/SectionTitle/SectionTitle";
+import useReview from "../../../Utility/Hooks/useReview";
 
 const LatestReview = () => {
   const { reviews } = useReview();

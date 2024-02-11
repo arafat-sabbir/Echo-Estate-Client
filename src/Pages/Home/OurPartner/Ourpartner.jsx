@@ -4,7 +4,6 @@ const OurPartner = () => {
   return (
   <div>
      <div className="bg-[#F2FFE9]">
-        
         <div className=" container py-8 rounded-xl mx-auto mb-20 ">
          <Marquee speed={80}>
            <img src="https://i.ibb.co/4tKgWWT/client-1.png" className="mr-20 mx-auto" alt="" />
