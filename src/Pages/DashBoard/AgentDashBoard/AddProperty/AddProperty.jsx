@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import Container from "../../../../../Utils/Container/Container";
-
 import axios from "axios";
 import { useState } from "react";
 import useUserInfo from "../../../../Utility/Hooks/useUserInfo";
 import useAxiosSecure from "../../../../Utility/Hooks/AxiosInstance/useAxiosSecure";
+import Container from "../../../../Utility/Container/Container";
 const AddProperty = () => {
   const imageHostingKey = import.meta.env.VITE_IMAGE_HOST_KEY;
   const axiosSecure = useAxiosSecure();

@@ -1,11 +1,11 @@
-import Swal from "sweetalert2";
-import useAddedProperty from "../../../../../Hooks/UseAddedProperty/useAddedProperty";
-import Container from "../../../../../Utils/Container/Container";
+import Swal from "sweetalert2"
 import AddedPropertiesCard from "./AddedPropertiesCard";
-import useAxiosSecure from "../../../../../Hooks/AxiosSecure/useAxiosSecure";
 import toast from "react-hot-toast";
-import SectionTitle from "../../../../../Utils/SectionTitle/SectionTitle";
 import Loading from "../../../../../Components/Loading/Loading";
+import useAddedProperty from "../../../../Utility/Hooks/useAddedProperty";
+import Container from "../../../../Utility/Container/Container";
+import useAxiosSecure from "../../../../Utility/Hooks/AxiosInstance/useAxiosSecure";
+import SectionTitle from "../../../../Utility/SectionTitle/SectionTitle";
 
 const AddedProperties = () => {
   const { Properties, refetch, isLoading } = useAddedProperty();
@@ -25,35 +25,35 @@ const AddedProperties = () => {
           console.log(res.data);
           if (res.data.deletedCount > 0) {
             refetch()
-            toast.success("SuccessFully Deleted Property")   
+            toast.success("SuccessFully Deleted Property")
           }
         });
       }
     });
   };
-  const handleupdate =(id)=>{
+  const handleUpdate = (id) => {
     console.log(id);
   }
-  if(isLoading){
+  if (isLoading) {
     return <Loading></Loading>
   }
   return (
-   <>
-   <div className="p-4">
-     <Container>
-    <div className="mt-10">
-    <SectionTitle title={"Added Property"} subtitle={"See All The Property You've Added"}></SectionTitle>
-    </div>
-      <div className="mb-10">
-        <div className="grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-10">
-        {Properties?.map((item) => (
-          <AddedPropertiesCard item={item} key={item._id} handleDelete={handleDelete} handleupdate={handleupdate}></AddedPropertiesCard>
-        ))}
-        </div>
+    <>
+      <div className="p-4">
+        <Container>
+          <div className="mt-10">
+            <SectionTitle title={"Added Property"} subtitle={"See All The Property You've Added"}></SectionTitle>
+          </div>
+          <div className="mb-10">
+            <div className="grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-10">
+              {Properties?.map((item) => (
+                <AddedPropertiesCard item={item} key={item._id} handleDelete={handleDelete} handleupdate={handleUpdate}></AddedPropertiesCard>
+              ))}
+            </div>
+          </div>
+        </Container>
       </div>
-    </Container>
-   </div>
-   </>
+    </>
   );
 };
 
